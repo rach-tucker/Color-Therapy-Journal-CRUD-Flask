@@ -1,0 +1,8 @@
+__pycache__
+#ignore virtual env 
+venv
+#ignore environment variables(only specific to this env)
+.env
+
+#ignore local database
+app.db

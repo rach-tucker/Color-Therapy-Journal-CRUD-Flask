@@ -1,0 +1,57 @@
+<html>
+<body>
+
+    <h1 class="text-center mt-5">How are you feeling today?</h1>
+    <h3 class="text-center mt-5">Click on a color below</h3>
+
+
+<style>
+    img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+<form name="colorForm" action="" method="post" class="mb-5">
+    <img src="{{ url_for('static', filename='images/wheel.png') }}" alt="colorwheel" usemap="#colormap" width="1152" height="809">
+
+        <map name="colormap">
+
+            <span title="orange">
+                <area shape="poly" coords="321, 171, 389, 121, 465, 86, 570, 69, 572, 423" alt="orange" href="{{ url_for('create_entry', entry_color='orange') }}">
+            </span>
+
+            <span title="yellow">
+                <area shape="poly" coords="577, 68, 650, 78, 759, 121, 830, 175, 581, 419" alt="yellow" href="{{ url_for('create_entry', entry_color='yellow') }}">
+            </span>
+
+            <span title ="green">
+                <area shape="poly" coords="837, 180, 886, 246, 928, 341, 938, 431, 595, 425" alt="green" href="{{ url_for('create_entry', entry_color='green') }}">
+            </span>
+
+            <span title="teal">
+                <area shape="poly" coords="936, 433, 924, 528, 892, 605, 834, 682, 594, 441" alt="teal" href="{{ url_for('create_entry', entry_color='teal') }}">
+            </span>
+            
+            <span title="blue">
+                <area shape="poly" coords="827, 693, 763, 742, 660, 784, 581, 791, 578, 444" alt="blue" href="{{ url_for('create_entry', entry_color='blue') }}">
+            </span>
+
+            <span title="purple">
+                <area shape="poly" coords="569, 793, 487, 782, 378, 731, 320, 685 567, 445" alt="purple" href="{{ url_for('create_entry', entry_color='purple') }}">
+            </span>
+            
+            <span title="pink">
+                <area shape="poly" coords="311, 682, 265, 615, 225, 524, 214, 433, 563, 435" alt="pink" href="{{ url_for('create_entry', entry_color='pink') }}">
+            </span>
+            
+            <span title="red">
+                <area shape="poly" coords="213, 423, 225, 349, 269, 239, 320, 177, 568, 428" alt="red" href="{{ url_for('create_entry', entry_color='red') }}">
+            </span>
+        
+        </map>
+</form>
+
+
+</body>
+</html>

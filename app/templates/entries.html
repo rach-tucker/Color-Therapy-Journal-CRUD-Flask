@@ -1,0 +1,29 @@
+{% extends 'layout.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+{% if current_user.is_authenticated %}
+    <h1 class="text-center text-white mt-4">Great job tracking your emotions, {{ current_user.username }}!</h1>
+{% else %}
+    <h1 class="text-center">Log In or Sign Up to Begin Journaling</h1>
+{% endif %}
+
+{% for entry in entries %}
+    <div class="bg-image card shadow-1-strong">
+    <div class="card-body text-white" style="background-image: url('{{ entry.color_image }}'); background-repeat:no-repeat; background-size:cover; background-position: center; ">
+        <h5 class="card-title">Color: {{ entry.color }}</h5>
+        <h5 class="card-title">Title: {{ entry.title }}</h5>
+        <p class="card-text">
+            {{ entry.body }}
+        </p>
+        <footer class="blockquote-footer">{{ entry.author.username }} on
+            <cite title="Source Title">{{ entry.date_created.strftime('%A, %B %d at %I:%M%p') }}</cite>
+        </footer>
+        <a href="{{ url_for('get_entry', entry_id=entry.id) }}" class="btn btn-secondary mt-3">See More</a>
+    </div>
+    </div>
+{% endfor %}
+
+{% endblock %}
