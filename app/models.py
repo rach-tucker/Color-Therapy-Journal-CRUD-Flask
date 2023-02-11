@@ -5,6 +5,7 @@ from flask_login import UserMixin
 from app import db, login
 import requests
 import random
+from flask import redirect, url_for, flash
 
 #class User inherits UserMixin properties
 class User(db.Model, UserMixin):
@@ -72,6 +73,11 @@ class Entry(db.Model):
 
     @staticmethod
     def getImage(color):
-        random_number = random.randint(1, 10)
-        r = requests.get("https://api.unsplash.com/search/photos?query=$" + color + "&client_id=yoc9bG_ex8c11GyAK9pZt4qhGXPm6_6hkzQDiEnuXGU")
-        return r.json()["results"][random_number]["urls"]["regular"]
+        try:
+            r = requests.get("https://api.unsplash.com/search/photos?query=$" + color + "&client_id=yoc9bG_ex8c11GyAK9pZt4qhGXPm6_6hkzQDiEnuXGU")
+            c = len(r.json()["results"])
+            random_number = random.randint(0, c)
+            return r.json()["results"][random_number]["urls"]["regular"]
+        except IndexError as e:
+            flash('Please try again', 'danger')
+            return redirect(url_for('index'))

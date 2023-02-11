@@ -4,10 +4,14 @@
 
 {% block content %}
 
-<body background="{{ color_image }}" style="background-repeat:no-repeat; background-size:cover;">
+<body background="{{ entry.color_image  }}" style="background-repeat:no-repeat; background-size:cover;">
 
     <form action="" id="EntryForm" class="rounded mt-3 p-5" method="post">
-        <h1 class="text-center">Edit Entry</h1>
+        <div style="width:500px; margin:auto;">
+            <h1 class="text-center text-white mt-4 bg-dark rounded-pill" style="--bs-bg-opacity: .5; padding:.3rem">Edit Mood Ring Entry</h1>
+        </div>
+
+        <div class="text-white" style="width:600px; margin:auto;">
         {{ form.csrf_token }}
     
         {{ form.title.label }}
@@ -17,7 +21,7 @@
         {{ form.body(class='form-control', placeholder= 'Log Your Emotions') }}
     
         {{ form.submit(class='btn btn-secondary w-100 mt-3') }}
-        
+        </div>
     </form>
     
     </body>

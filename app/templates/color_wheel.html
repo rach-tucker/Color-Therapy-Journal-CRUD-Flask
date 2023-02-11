@@ -1,10 +1,6 @@
 <html>
 <body>
 
-    <h1 class="text-center mt-5">How are you feeling today?</h1>
-    <h3 class="text-center mt-5">Click on a color below</h3>
-
-
 <style>
     img {
         display: block;
@@ -12,10 +8,18 @@
         margin-right: auto;
     }
 </style>
-<form name="colorForm" action="" method="post" class="mb-5">
-    <img src="{{ url_for('static', filename='images/wheel.png') }}" alt="colorwheel" usemap="#colormap" width="1152" height="809">
+
+
+<form name="colorForm" action="" method="post" class="mb-5; text-align:justify;">
+
+    <div class="" style="width:560px; margin:auto;">
+        <h1 class="text-center text-white mt-4 bg-dark rounded-pill" style="--bs-bg-opacity: .5; padding:.3rem">How are you feeling today? <n><h4>Click on a color below</h4></n></h1>
+    </div>
+    
+    <img src="{{ url_for('static', filename='images/wheel.png') }}" alt="colorwheel" usemap="#colormap" width="1152" height="809" style="filter: opacity(70%)">
 
         <map name="colormap">
+            
 
             <span title="orange">
                 <area shape="poly" coords="321, 171, 389, 121, 465, 86, 570, 69, 572, 423" alt="orange" href="{{ url_for('create_entry', entry_color='orange') }}">

@@ -4,19 +4,25 @@
 
 {% block content %}
 
-<body background="{{ color_image }}" style="background-repeat:no-repeat; background-size:cover;">
+<body background="{{ color_image }}" style="background-repeat:no-repeat; background-size:cover; background-size: 100% 100vh;">
 
 <form action="" id="EntryForm" class="rounded mt-3 p-5" method="post">
-    <h1 class="text-center">Log Your Emotions in Color</h1>
+    <div style="width:600px; margin:auto;">
+        <h1 class="text-center text-white mt-4 bg-dark rounded-pill" style="--bs-bg-opacity: .5; padding:.3rem">Create your Mood Ring entry</h1>
+    </div>
+
+    <div class="text-white" style="width:600px; margin:auto;">
     {{ form.csrf_token }}
 
     {{ form.title.label }}
+
     {{ form.title(class='form-control', placeholder = 'Enter Title of Entry') }}
 
     {{ form.body.label }}
-    {{ form.body(class='form-control', placeholder= 'Log Your Emotions') }}
+    {{ form.body(class='form-control', placeholder= 'Log Your Mood') }}
 
     {{ form.submit(class='btn btn-secondary w-100 mt-3') }}
+    </div>
     
 </form>
 

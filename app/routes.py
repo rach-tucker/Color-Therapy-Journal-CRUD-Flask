@@ -63,29 +63,24 @@ def color_entry():
     print("test")
     return render_template('color_entry.html')
 
-
 @app.route('/create-entry/<entry_color>', methods = ["GET", "POST"])
 @login_required
 def create_entry(entry_color):
     color_image=Entry.getImage(entry_color)
-    print(color_image)
-    #get image here, at the start of the function, set background whatever (getelementid for background div)
-    #to whatever the image is
-    #use same var'd image http in new_entry, otherwise the images won't match due to rng
     form = EntryForm()
     print(entry_color)
     if form.validate_on_submit():
         title = form.title.data
         body = form.body.data
         new_entry = Entry(color=entry_color, title=title, body=body, color_image=Entry.getImage(entry_color), user_id=current_user.id)
-        flash(f"${new_entry.title} has been created!", "success")
+        flash(f"{new_entry.title} has been created!", "success")
         return get_entries()
     return render_template('create_entry.html', form=form, color_image=color_image)
 
 
 @app.route('/entries')
 def get_entries():
-    entries = Entry.query.all()
+    entries = Entry.query.filter(Entry.user_id == current_user.id)
     return render_template('entries.html', entries=entries)
 
 @app.route('/entries/<entry_id>')
