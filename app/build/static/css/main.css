@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(62, 37, 90)!important;
+}
+
+.navbar-nav > a{
+    padding-left:130px!important;
+    padding-right:130px!important;
+}
+
+.navbar-nav > a{
+    margin-left:30px!important;
+    margin-right:30px!important;
+}
+
+.image-cropper {
+    width: 610px!important;
+    height: 610px!important;
+    position: relative!important;
+    overflow: hidden!important;
+    margin: auto!important;
+    margin-top:2%!important;
+    border-radius: 50%!important;
+    filter: drop-shadow(50px 50px 50px rgb(0, 0, 0));
+  }
+
+.carousel-caption {
+    position: absolute;
+    right: 15%;
+    bottom: 1.25rem;
+    left: 15%;
+    padding-top: 1.25rem;
+    padding-bottom: 2.5rem;
+    color: #fff;
+    text-align: center;
+}
+
+.buttons{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%; 
+}
+
+.btn-success{
+  margin: 0 10px;
+}
