@@ -1,1 +1,1 @@
-web: gunicorn config:basedir
+web: gunicorn routes:app
